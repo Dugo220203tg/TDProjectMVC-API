@@ -1,0 +1,17 @@
+﻿@model IEnumerable<TDProjectMVC.ViewModels.HangHoaVM>
+@{
+	var topThreeProducts = Model.OrderByDescending(item => item.DonGia).Take(3);
+}
+@foreach (var item in topThreeProducts)
+	{
+	<div class="product-widget">
+		<div class="product-img">
+			<img src="~/Hinh/Hinh/HangHoa/@item.Hinh" alt="@item.TenHH">
+		</div>
+		<div class="product-body">
+			<p class="product-category">@item.TenLoai</p>
+			<h3 class="product-name"><a asp-action="Detail" asp-controller="Product" asp-route-id="@item.MaHH">@item.TenHH</a></h3>
+			<h4 class="product-price">$@item.DonGia</h4>
+		</div>
+	</div>
+	}
