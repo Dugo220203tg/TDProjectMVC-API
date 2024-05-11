@@ -1,0 +1,166 @@
+﻿@model TrangQuanLy.Models.HangHoaVM
+<body>
+    <div class="" style="display:grid; place-items:center; margin-top:20px">
+        <div class="bg-secondary rounded h-100 p-4">
+            <h5 class="mb-4">Thêm sản phẩm</h5>
+            <form asp-action="Create">
+                <div class="mb-3">
+                    <label asp-for="TenHH" class="form-label">Tên sản phẩm</label>
+                    <input asp-for="TenHH" class="form-control" />
+                    <span asp-validation-for="TenHH" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="MoTa" class="control-label">Mô tả</label>
+                    <input asp-for="MoTa" class="form-control" />
+                    <span asp-validation-for="MoTa" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="MoTaDonVi" class="control-label">Mô tả ngắn</label>
+                    <input asp-for="MoTaDonVi" class="form-control" />
+                    <span asp-validation-for="MoTaDonVi" class="text-danger"></span>
+                </div>
+                <label asp-for="DonGia" class="control-label">Đơn giá</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input asp-for="DonGia" class="form-control" />
+                    <span asp-validation-for="DonGia" class="text-danger"></span>
+                </div>
+@*                 <div class="mb-3">
+                    <label asp-for="MaLoai" class="control-label">Mô tả</label>
+                    <input asp-for="MaLoai" class="form-control" />
+                    <span asp-validation-for="MaLoai" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="MaNCC" class="control-label">Mô tả ngắn</label>
+                    <input asp-for="MaNCC" class="form-control" />
+                    <span asp-validation-for="MaNCC" class="text-danger"></span>
+                </div> *@
+                <div class="mb-3">
+                    <label asp-for="MaLoai" class="control-label">Loại sản phẩm</label>
+                    <select id="selectLoaiSp" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                        <option selected="">Chọn mã sản phẩm</option>
+                        @await Component.InvokeAsync("LoaiSp")
+                    </select>
+                    <input id="inputValueLoaiSp" style="display:none;" type="text" class="form-control" name="MaLoai" readonly asp-for="MaLoai">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="MaNCC" class="control-label">Nhà cung cấp</label>
+                    <select id="selectNCC" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                        <option selected="">Chọn nhà cung cấp</option>
+                        @await Component.InvokeAsync("HangSp")
+                    </select>
+                    <input id="inputValueNCC" style="display:none;" type="text" class="form-control" name="MaNCC" readonly asp-for="MaNCC">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label my-3" asp-for="@Model.NgaySX" style="margin-top: 0rem !important;margin-bottom: 0rem !important;"></label>
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input asp-for="@Model.NgaySX" type="text" class="form-control" data-target="#datetimepicker1" />
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    <span asp-validation-for="@Model.NgaySX" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Hinh" for="formFile" class="form-label">Chọn hình ảnh sản phẩm</label>
+                    <input asp-for="Hinh" class="form-control bg-dark" type="file" id="formFile" multiple>
+                    <span asp-validation-for="Hinh" class="text-danger"></span>
+                </div>
+                <input type="submit" style="margin-left: 95px;margin-top: 20px;}" class="btn btn-primary" value="Thêm sản phẩm">
+            </form>
+            <div>
+                <a asp-action="Index" style="position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 9999;">X</a>
+            </div>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    @{
+        <script>
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    format: 'dd/mm/yyyy',
+                    autoclose: true
+                });
+            });
+        </script>
+        <script>
+            $(function () {
+                var bindDatePicker = function () {
+                    $(".date").datetimepicker({
+                        format: 'YYYY-MM-DD',
+                        icons: {
+                            time: "fa fa-clock-o",
+                            date: "fa fa-calendar",
+                            up: "fa fa-arrow-up",
+                            down: "fa fa-arrow-down"
+                        }
+                    }).find('input:first').on("blur", function () {
+                        // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+                        // update the format if it's yyyy-mm-dd
+                        var date = parseDate($(this).val());
+
+                        if (!isValidDate(date)) {
+                            //create date based on momentjs (we have that)
+                            date = moment().format('YYYY-MM-DD');
+                        }
+
+                        $(this).val(date);
+                    });
+                }
+
+                var isValidDate = function (value, format) {
+                    format = format || false;
+                    // lets parse the date to the best of our knowledge
+                    if (format) {
+                        value = parseDate(value);
+                    }
+
+                    var timestamp = Date.parse(value);
+
+                    return isNaN(timestamp) == false;
+                }
+
+                var parseDate = function (value) {
+                    var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+                    if (m)
+                        value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+                    return value;
+                }
+
+                bindDatePicker();
+            });
+        </script>
+        <script>
+            document.getElementById('selectLoaiSp').addEventListener('change', function () {
+                var selectedValue = this.value;
+                var inputValue = document.getElementById('inputValueLoaiSp');
+
+                if (selectedValue !== "") {
+                    inputValue.value = selectedValue;
+                } else {
+                    inputValue.value = "";
+                }
+            });
+            document.getElementById('selectNCC').addEventListener('change', function () {
+                var selectedValue = this.value;
+                var inputValue = document.getElementById('inputValueNCC');
+
+                if (selectedValue !== "") {
+                    inputValue.value = selectedValue;
+                } else {
+                    inputValue.value = "";
+                }
+            });
+        </script>
+    }
+}

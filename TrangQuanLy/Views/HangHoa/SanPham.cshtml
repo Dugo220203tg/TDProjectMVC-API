@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TrangQuanLy.Models.HangHoaVM>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.MaHH)
+        </td>
+        <td style="width:220px; word-wrap: break-word; color: white">
+            @Html.DisplayFor(modelItem => item.TenHH)
+        </td>
+        <td style="color: white;">
+            <img src="~/Hinh/Hinh/HangHoa/@item.Hinh" alt="Alternate Text" style="width:80px;height:80px;" />
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.MoTaDonVi)
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.MaLoai)
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.NgaySX)
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.GiamGia)
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.MaNCC)
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td style="color: white;">
+            @Html.DisplayFor(modelItem => item.SoLanXem)
+        </td>
+        <td style="display:flex;align-items: center; height:97px;">
+            <form method="get" style="margin-right:5px" action="@Url.Action("Edit", new { id = item.MaHH })">
+                <button type="submit" class="btn btn-outline-info m-2">Sửa</button>
+            </form>
+            |
+            <form id="delete-form" style="margin-right:5px" method="post" asp-action="Delete">
+                <input type="hidden" name="MaHH" value="@item.MaHH" />
+                <input type="submit" value="Delete" class="btn btn-outline-info m-2" />
+            </form>
+        </td>
+    </tr>
+}
