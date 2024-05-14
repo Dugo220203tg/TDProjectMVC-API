@@ -102,6 +102,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcY2FydFByb2R1Y3RcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/td/source/repos/TDProjectMVC/TDProjectMVC/Views/Shared/Components/DanhGiaSao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFuaEdpYVNhb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/td/source/repos/TDProjectMVC/TDProjectMVC/Views/Shared/Components/DanhGia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFuaEdpYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/td/source/repos/TDProjectMVC/TDProjectMVC/Views/Shared/Components/HangSp/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSGFuZ1NwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -120,6 +128,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/td/source/repos/TDProjectMVC/TDProjectMVC/Views/Shared/Components/TopProduct/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVG9wUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/td/source/repos/TDProjectMVC/TDProjectMVC/Views/Shared/Components/WishList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcV2lzaExpc3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/td/source/repos/TDProjectMVC/TDProjectMVC/Views/Shared/Error.cshtml]

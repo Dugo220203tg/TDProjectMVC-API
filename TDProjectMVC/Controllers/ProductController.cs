@@ -111,7 +111,17 @@ namespace TDProjectMVC.Controllers
                 SoLuong = 10,
                 DiemDanhGia = 5,
             };
-
+            //var database = db.DanhGia
+            //    //.Include(p => p.HangHoaNavigation)
+            //    .Include(p => p.MaKhNavigation)
+            //    .SingleOrDefault(p => p.MaHh == id);
+            //var danhgia = new DanhGiaVM()
+            //{
+            //    MaKH = database.MaKhNavigation.TenKhachHang,
+            //    NoiDung = database.NoiDung,
+            //    DanhGia = database.DanhGia,
+            //    Ngay = database.Ngay,
+            //};
             return View(result);
         }
     }

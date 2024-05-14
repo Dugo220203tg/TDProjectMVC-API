@@ -21,6 +21,8 @@ public partial class Hshop2023Context : DbContext
 
     public virtual DbSet<ChuDe> ChuDes { get; set; }
 
+    public virtual DbSet<DanhGiaSp> DanhGiaSps { get; set; }
+
     public virtual DbSet<GopY> Gopies { get; set; }
 
     public virtual DbSet<HangHoa> HangHoas { get; set; }
@@ -52,6 +54,7 @@ public partial class Hshop2023Context : DbContext
     public virtual DbSet<YeuThich> YeuThiches { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=DESKTOP-4AS3J3K\\LOCALHOST;Initial Catalog=Hshop2023;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -121,6 +124,31 @@ public partial class Hshop2023Context : DbContext
                 .HasForeignKey(d => d.MaNv)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_ChuDe_NhanVien");
+        });
+
+        modelBuilder.Entity<DanhGiaSp>(entity =>
+        {
+            entity.HasKey(e => e.MaDg);
+
+            entity.ToTable("DanhGiaSP");
+
+            entity.Property(e => e.MaDg)
+                .ValueGeneratedNever()
+                .HasColumnName("MaDG");
+            entity.Property(e => e.MaHh).HasColumnName("MaHH");
+            entity.Property(e => e.MaKh)
+                .HasMaxLength(20)
+                .HasColumnName("MaKH");
+
+            entity.HasOne(d => d.MaHhNavigation).WithMany(p => p.DanhGiaSps)
+                .HasForeignKey(d => d.MaHh)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DanhGiaSP_HangHoa");
+
+            entity.HasOne(d => d.MaKhNavigation).WithMany(p => p.DanhGiaSps)
+                .HasForeignKey(d => d.MaKh)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DanhGiaSP_KhachHang");
         });
 
         modelBuilder.Entity<GopY>(entity =>

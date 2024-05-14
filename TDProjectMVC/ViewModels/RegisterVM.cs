@@ -21,7 +21,7 @@ namespace TDProjectMVC.ViewModels
 		public bool GioiTinh { get; set; } = true;
 
 		[DataType(DataType.Date)]
-		public DateTime? NgaySinh { get; set; }
+		public DateOnly? NgaySinh { get; set; }
 
 		[MaxLength(60, ErrorMessage = "Tối đa 60 kí tự")]
 		public string DiaChi { get; set; }
