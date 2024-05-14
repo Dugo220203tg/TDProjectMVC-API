@@ -40,8 +40,8 @@
 						<div class="order-notes">
 							<textarea class="input" name="GhiChu" placeholder="Order Notes"></textarea>
 						</div>
-						<button type="submit" name="payment" class="primary-btn order-submit text-xl-center">Place order</button>
-						<button type="submit" name="payment" class="primary-btn order-submit text-xl-center">VNPay</button>
+						<input type="submit" name="payment" class="primary-btn order-submit text-xl-center" value="Đặt hàng (COD)">
+						<input type="submit" name="payment" class="primary-btn order-submit text-xl-center" value="Thanh toán VNPay">
 
 					</form>
 				<!-- /Order notes -->
@@ -102,7 +102,7 @@
 					</div>
 					<div class="order-col">
 						<div><strong>TOTAL</strong></div>
-						<div><strong class="order-total">$@Model.Sum(p => p.ThanhTien)</strong></div>
+							<div><strong class="order-total">$@Model.Sum(p => p.ThanhTien).ToString("#,##0.00")</strong></div>
 					</div>
 				</div>
 				<div class="payment-method">

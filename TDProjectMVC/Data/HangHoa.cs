@@ -35,6 +35,8 @@ public partial class HangHoa
 
     public virtual ICollection<ChiTietHd> ChiTietHds { get; set; } = new List<ChiTietHd>();
 
+    public virtual ICollection<DanhGiaSp> DanhGiaSps { get; set; } = new List<DanhGiaSp>();
+
     public virtual Loai MaLoaiNavigation { get; set; } = null!;
 
     public virtual NhaCungCap MaNccNavigation { get; set; } = null!;

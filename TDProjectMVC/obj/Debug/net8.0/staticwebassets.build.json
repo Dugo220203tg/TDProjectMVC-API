@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "odoKODEBWUXPSkOe3YthhJT5khdMQyux5zmSxqT9izI=",
+  "Hash": "bqgRnDSdWLSh8mmyguqyP4oDJQnS+6pjGxatNS4V+Y8=",
   "Source": "TDProjectMVC",
   "BasePath": "_content/TDProjectMVC",
   "Mode": "Default",
@@ -9078,6 +9078,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Hinh\\Hinh\\KhachHang\\Penguins.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\td\\source\\repos\\TDProjectMVC\\TDProjectMVC\\wwwroot\\Hinh\\Hinh\\KhachHang\\tải xuống (1).jpg",
+      "SourceId": "TDProjectMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\td\\source\\repos\\TDProjectMVC\\TDProjectMVC\\wwwroot\\",
+      "BasePath": "_content/TDProjectMVC",
+      "RelativePath": "Hinh/Hinh/KhachHang/tải xuống (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Hinh\\Hinh\\KhachHang\\tải xuống (1).jpg"
     },
     {
       "Identity": "C:\\Users\\td\\source\\repos\\TDProjectMVC\\TDProjectMVC\\wwwroot\\Hinh\\Hinh\\KhachHang\\tải xuống.jpg",
